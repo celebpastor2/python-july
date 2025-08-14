@@ -1,4 +1,5 @@
 #from mailbox import BabylMessage
+
 """
 This is a Comment in Python - a multi line comment
 """
@@ -24,9 +25,16 @@ dicct["key5"] = "value5"
 #a means the append mode
 #w means write mode
 #b means write in binary mode
-file = open("aliyah.txt","r")
-read = file.readline()
-read2 = file.readlines()
+
+file = open("products.csv","+a")
+file2 = open("products.csv", "r")
+header = file2.readline()
+
+
+body = list( file2.readlines() )
+body = body[:10]
+line = len(body)
+line += 1
+newcsv = f"{line},New Product,6,34,34.96"
+file.write(f"\n{newcsv}")
 file.close()
-print(read)
-print(read2)
