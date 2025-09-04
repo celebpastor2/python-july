@@ -1,5 +1,7 @@
 from telegram import Update, InlineKeyboardMarkup, InlineKeyboardButton, InlineQuery, ReplyKeyboardMarkup, ReplyKeyboardRemove
 from telegram.ext import Application, ContextTypes, CallbackContext, CommandHandler, MessageHandler, CallbackQueryHandler, filters
+import requests
+from bs4 import BeautifulSoup
 #from telegram.error import TelegramError, NetworkError
 
 BOT_API = "7226017383:AAHbvfq8nkcK3_2TtGJ98xmke_HMNLccmkU"
