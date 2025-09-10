@@ -8,6 +8,7 @@ from selenium.webdriver.support.ui import WebDriverWait #wait unntil a particula
 from selenium.webdriver.support import expected_conditions as EC#desgin a conditio for your web drive to wait
 from webdriver_manager.chrome   import ChromeDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
+from selenium.webdriver import ActionChains
 
 option = Options()
 
@@ -45,6 +46,31 @@ print("firefox title", firefox.title)
 
 element = WebDriverWait(firefox, 10).until(EC.presence_of_element_located((By.ID, "email")))
 element.send_keys("samuelphillip@gmail.com")
+
+element = chrome.find_element(By.XPATH, "/html/body/div[1]/main/div[1]/div[7]/section")
+
+#chain finding
+products = element.find_elements(By.CSS_SELECTOR, "img")
+element.click()
+element.send_keys("value")#helps to fill form
+element.clear()
+element.get_attribute("name")
+element.screenshot("filename.png")
+element.submit()
+
+#advanced interaction on the page with selenium
+action  = ActionChains(chrome)
+action.move_to_element(element).pause(3).click(element).pause(3).send_keys("value").pause(2).perform()
+action.double_click(element).perform()
+action.context_click(element).perform()
+
+
+
+
+
+#A webelement Object is a representation of an html element within you selenium web browser
+
+
 
 chrome.quit()
 firefox.quit()
